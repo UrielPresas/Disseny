@@ -5,112 +5,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | UPpop</title>
-    <!-- Tailwind por CDN para que se vea suelto. En tu proyecto, cambia esta línea por: <link href="./src/output.css" rel="stylesheet"> -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
+    <link href="../src/output.css" rel="stylesheet">
 </head>
 
-<body class="bg-[#C8D3D9]">
+<body class="bg-[#C8D3D9] dark:bg-[#232526]">
 
     <header>
         <nav class="mx-auto flex max-w-7xl items-center px-6 py-4">
 
             <!-- Logo -->
-            <a href="#" class="mr-8 shrink-0" aria-label="UPpop">
-                <!-- PEGA AQUÍ TU SVG DEL LOGO (el de la home, con class="h-11 w-auto") y borra el span de abajo -->
-                <span
-                    class="bg-gradient-to-br from-[#F29422] to-[#B66F1A] bg-clip-text text-4xl font-extrabold leading-none text-transparent">UPpop</span>
+            <a href="../index.html" class="mr-8 shrink-0" aria-label="UPpop">
+                <img src="../img/UPPopLogo.svg" alt="Logo" width="150" height="50">
             </a>
 
-            <!-- Todo menos el logo -->
+            <!-- Creacio Div navbar -->
             <div class="flex flex-1 items-center justify-between bg-[#F29422] px-4 py-2">
 
-                <!-- Enlaces de navegación -->
+                <!-- Links dins del navbar -->
                 <ul class="hidden items-center gap-8 md:flex">
-                    <li><a href="../index.html" class="text-[#21201F] hover:text-[#c8d3d9]">Inicio</a></li>
-                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Servicios</a></li>
-                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Sobre nosotros</a></li>
-                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Contacto</a></li>
+                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Qui som</a></li>
+                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Categories</a></li>
+                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Contacte</a></li>
                 </ul>
 
-                <!-- Grupo derecho: tema + login juntos -->
+                <!-- Botons per cambiar el tema -->
+                <!-- Tema clar -->
                 <div class="ml-auto flex items-center gap-3">
-
-                    <!-- Botones de tema -->
                     <div class="flex items-center gap-1">
-                        <button class="p-1" type="button" aria-label="Tema claro">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-[30px] w-[30px]"
-                                aria-hidden="true">
-                                <circle cx="12" cy="12" r="5" class="fill-gray-900" />
-                                <path
-                                    d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"
-                                    class="stroke-gray-900" stroke-width="2" stroke-linecap="round" fill="none" />
-                            </svg>
+                        <button id="temaClar" type="button" class="p-1 cursor-pointer" aria-label="Tema Clar">
+                            <img src="../img/Sol.svg" alt="Tema Clar">
                         </button>
 
-                        <button class="p-1" type="button" aria-label="Tema oscuro">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"
-                                class="h-[30px] w-[30px] fill-gray-900" aria-hidden="true">
-                                <path
-                                    d="M30,17.96c-.82,4.03-3.3,7.7-7.15,9.95-7.21,4.21-16.49,1.83-20.74-5.3C-2.15,15.48.25,6.29,7.46,2.08,11.31-.17,15.76-.54,19.72.7c-1.84.07-3.7.58-5.4,1.57-5.47,3.19-7.29,10.17-4.06,15.59,3.23,5.41,10.27,7.21,15.74,4.02,1.7-.99,3.05-2.35,4-3.91Z" />
-                            </svg>
+                        <!-- Tema Fosc -->
+                        <button id="temaFosc" type="button" class="p-1 cursor-pointer" aria-label="Tema Fosc">
+                            <img src="../img/Luna.svg" alt="Luna" width="30" height="30">
                         </button>
                     </div>
-
-                    <!-- Login -->
-                    <a href="#login"
-                        class="rounded-lg bg-[#B66F1A] px-4 py-2 font-medium text-[#21201F] hover:bg-[#21201F] hover:text-[#f29422]">
-                        Login
-                    </a>
                 </div>
 
             </div>
         </nav>
     </header>
 
-    <!-- Contenido -->
+    <!-- Secció Main -->
     <main id="login" class="mx-auto flex max-w-7xl flex-col gap-4 px-6 pb-10 md:flex-row">
 
-        <!-- Piano -->
+        <!-- Piano: Esbós fer per IA, no és final!!  -->
         <section aria-hidden="true"
-            class="relative min-h-[280px] overflow-hidden rounded-b-2xl bg-[#E0E0E0] md:w-[36%] md:shrink-0">
-            <!-- separaciones de teclas blancas -->
+            class="relative min-h-70 overflow-hidden rounded-b-2xl bg-[#E0E0E0] md:w-[36%] md:shrink-0">
+
             <div class="absolute inset-y-0 left-[18.8%] w-1.5 bg-[#A9A9A9]"></div>
             <div class="absolute bottom-0 left-[54%] top-[70.5%] w-1.5 bg-[#A9A9A9]"></div>
             <div class="absolute bottom-0 left-[89.6%] top-[70.5%] w-1.5 bg-[#A9A9A9]"></div>
 
-            <!-- teclas negras -->
-            <div
-                class="absolute left-[37.9%] top-0 h-[71%] w-[25.9%] rounded-b-md border-x-[6px] border-b-[6px] border-[#A9A9A9] bg-[#B3B3B3]">
+            <div class="absolute left-[37.9%] top-0 h-[71%] w-[25.9%] rounded-b-md border-x-[6px] border-b-[6px] border-[#A9A9A9] bg-[#B3B3B3]">
                 <div class="mx-auto mt-3 h-[70%] w-[70%] rounded-b-xl bg-black/5"></div>
             </div>
-            <div
-                class="absolute left-[75.7%] top-0 h-[71%] w-[25.9%] rounded-b-md border-x-[6px] border-b-[6px] border-[#A9A9A9] bg-[#B3B3B3]">
+
+            <div class="absolute left-[75.7%] top-0 h-[71%] w-[25.9%] rounded-b-md border-x-[6px] border-b-[6px] border-[#A9A9A9] bg-[#B3B3B3]">
                 <div class="mx-auto mt-3 h-[70%] w-[70%] rounded-b-xl bg-black/5"></div>
             </div>
+
         </section>
 
-        <!-- Tarjeta de login / registro -->
-        <section
-            class="flex flex-1 flex-col items-center rounded-2xl bg-[#F26B5F] px-6 pb-12 pt-10 text-[#21201F] md:min-h-[520px]">
+        <!-- Secció Login -->
+        <section class="flex flex-1 flex-col items-center rounded-2xl bg-[#F26B5F] dark:bg-[#73332D] px-6 pb-12 pt-10 text-[#21201F] dark:text-[#EBE3DA] md:min-h-130">
+
             <h1 class="text-center text-3xl font-light">Benvingut a UPpop!</h1>
 
+            <!-- Formulari Login -->
             <form class="mt-14 flex w-full max-w-sm flex-col gap-6">
-                <input type="text" name="nombre" placeholder="Nombre" autocomplete="name" required
-                    class="h-9 w-full rounded bg-[#F29422] px-3 text-[#21201F] placeholder-[#21201F]/60 outline-none focus:ring-2 focus:ring-[#21201F]/40" />
 
-                <input type="password" name="password" placeholder="Contraseña" autocomplete="new-password" required
-                    class="h-9 w-full rounded bg-[#F29422] px-3 text-[#21201F] placeholder-[#21201F]/60 outline-none focus:ring-2 focus:ring-[#21201F]/40" />
+                <!-- Input Nom -->
+                <input type="text" name="nom" placeholder="Nom" required
+                    class="h-9 w-full rounded bg-[#F29422] px-3 text-[#21201F] placeholder-[#21201F]">
 
+                <!-- Input Contrasenya -->
+                <input type="password" name="password" placeholder="Contrasenya" required
+                    class="h-9 w-full rounded bg-[#F29422] px-3 text-[#21201F] placeholder-[#21201F]">
+
+                <!-- Botó -->
                 <button type="submit"
-                    class="h-9 w-full rounded bg-[#F29422] text-xl font-light text-[#21201F] transition hover:bg-[#B66F1A] focus:outline-none focus:ring-2 focus:ring-[#21201F]/40">
+                    class="h-9 w-full rounded bg-[#F29422] text-xl font-light text-[#21201F] transition hover:bg-[#B66F1A]">
                     Login
                 </button>
+
             </form>
-            <br><h1>No tens compte? <a class="text-[#21201A]" href="./register.html">Registrat</a></h1>
+
+            <!-- Link per anar al registre -->
+            <h2 class="mt-4">
+                No tens compte?
+                <a id="textLink" class="text-[#21201A] dark:text-[#EBE3DA] underline" href="./register.html">Registrat</a>
+            </h2>
+
         </section>
 
     </main>
-
+    <!-- Truquem al script aquí a baix perquè els botons s'han de crear primer, si posem el script a dalt no ens donarà error perquè els botons no estaran creats encara -->
+    <script src="../scripts/tema.js"></script>
 </body>
-
 </html>
