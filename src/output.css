@@ -8,6 +8,7 @@
       "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-fuchsia-400: oklch(74% 0.238 322.16);
     --color-black: #000;
     --spacing: 0.25rem;
     --container-sm: 24rem;
@@ -25,6 +26,7 @@
     --text-7xl: 4.5rem;
     --text-7xl--line-height: 1;
     --font-weight-light: 300;
+    --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
     --radius-md: 0.375rem;
@@ -255,9 +257,6 @@
   .hidden {
     display: none;
   }
-  .table {
-    display: table;
-  }
   .aspect-2\/1 {
     aspect-ratio: 2/1;
   }
@@ -281,9 +280,6 @@
   }
   .w-\(--x\) {
     width: var(--x);
-  }
-  .w-1 {
-    width: var(--spacing);
   }
   .w-1\.5 {
     width: calc(var(--spacing) * 1.5);
@@ -318,20 +314,11 @@
   .flex-1 {
     flex: 1;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
   .shrink-0 {
     flex-shrink: 0;
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -357,8 +344,8 @@
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
-  .gap-6 {
-    gap: calc(var(--spacing) * 6);
+  .gap-5 {
+    gap: calc(var(--spacing) * 5);
   }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
@@ -387,10 +374,6 @@
     border-bottom-right-radius: var(--radius-xl);
     border-bottom-left-radius: var(--radius-xl);
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
   .border-x-\[6px\] {
     border-inline-style: var(--tw-border-style);
     border-inline-width: 6px;
@@ -402,29 +385,26 @@
   .border-\[\#A9A9A9\] {
     border-color: #A9A9A9;
   }
+  .bg-\[\#1F6F8B\] {
+    background-color: #1F6F8B;
+  }
+  .bg-\[\#242527\] {
+    background-color: #242527;
+  }
   .bg-\[\#A9A9A9\] {
     background-color: #A9A9A9;
   }
   .bg-\[\#B3B3B3\] {
     background-color: #B3B3B3;
   }
-  .bg-\[\#B66F1A\] {
-    background-color: #B66F1A;
-  }
-  .bg-\[\#C8D3D9\] {
-    background-color: #C8D3D9;
-  }
   .bg-\[\#E0E0E0\] {
     background-color: #E0E0E0;
-  }
-  .bg-\[\#F26B5F\] {
-    background-color: #F26B5F;
   }
   .bg-\[\#F29422\] {
     background-color: #F29422;
   }
-  .bg-black {
-    background-color: var(--color-black);
+  .bg-\[\#FFF4E3\] {
+    background-color: #FFF4E3;
   }
   .bg-black\/5 {
     background-color: color-mix(in srgb, #000 5%, transparent);
@@ -465,6 +445,12 @@
   .text-center {
     text-align: center;
   }
+  .font-\[\'Frutiger\'\] {
+    font-family: 'Frutiger';
+  }
+  .font-\[\'Inter\'\] {
+    font-family: 'Inter';
+  }
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
@@ -497,24 +483,33 @@
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
   }
-  .text-\[\#21201A\] {
-    color: #21201A;
+  .font-normal {
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
   }
-  .text-\[\#21201F\] {
-    color: #21201F;
+  .text-\[\#2B1D0E\] {
+    color: #2B1D0E;
   }
-  .text-\[\#B66F1A\] {
-    color: #B66F1A;
+  .text-\[\#FFF4E3\] {
+    color: #FFF4E3;
+  }
+  .text-\[\#f29422\] {
+    color: #f29422;
   }
   .underline {
     text-decoration-line: underline;
   }
-  .placeholder-\[\#21201F\]::placeholder {
-    color: #21201F;
+  .decoration-\[\#2B1D0E\] {
+    text-decoration-color: #2B1D0E;
   }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
+  .decoration-2 {
+    text-decoration-thickness: 2px;
+  }
+  .placeholder-\[\#2B1D0E\]::placeholder {
+    color: #2B1D0E;
+  }
+  .outline-\[\#242527\] {
+    outline-color: #242527;
   }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
@@ -522,18 +517,32 @@
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
   @media (hover: hover) {
-    .hover\:bg-\[\#21201F\]:hover {
-      background-color: #21201F;
-    }
     .hover\:bg-\[\#B66F1A\]:hover {
       background-color: #B66F1A;
     }
-    .hover\:text-\[\#c8d3d9\]:hover {
-      color: #c8d3d9;
+    .hover\:bg-\[\#f29422\]:hover {
+      background-color: #f29422;
     }
-    .hover\:text-\[\#f29422\]:hover {
-      color: #f29422;
+    .hover\:text-\[\#242527\]:hover {
+      color: #242527;
     }
+    .hover\:text-\[\#F29422\]:hover {
+      color: #F29422;
+    }
+    .hover\:underline:hover {
+      text-decoration-line: underline;
+    }
+    .hover\:outline-2:hover {
+      outline-style: var(--tw-outline-style);
+      outline-width: 2px;
+    }
+  }
+  .focus\:outline-2:focus {
+    outline-style: var(--tw-outline-style);
+    outline-width: 2px;
+  }
+  .focus\:outline-\[\#2B1D0E\]:focus {
+    outline-color: #2B1D0E;
   }
   @media (width >= 48rem) {
     .md\:flex {
@@ -552,41 +561,20 @@
       flex-direction: row;
     }
   }
-  .dark\:bg-\[\#733\]:where(.dark, .dark *) {
-    background-color: #733;
-  }
-  .dark\:bg-\[\#7333\]:where(.dark, .dark *) {
-    background-color: #7333;
-  }
   .dark\:bg-\[\#73332D\]:where(.dark, .dark *) {
     background-color: #73332D;
   }
   .dark\:bg-\[\#232526\]:where(.dark, .dark *) {
     background-color: #232526;
   }
-  .dark\:bg-\[\#EBE3DA\]:where(.dark, .dark *) {
-    background-color: #EBE3DA;
-  }
-  .dark\:bg-\[\#EBE3\]:where(.dark, .dark *) {
-    background-color: #EBE3;
-  }
-  .dark\:bg-\[\#F2\]:where(.dark, .dark *) {
-    background-color: #F2;
-  }
-  .dark\:bg-\[\#F\]:where(.dark, .dark *) {
-    background-color: #F;
-  }
-  .dark\:bg-\[\#\]:where(.dark, .dark *) {
-    background-color: #;
-  }
   .dark\:text-\[\#EBE3DA\]:where(.dark, .dark *) {
     color: #EBE3DA;
   }
-  .dark\:text-\[\#EBE3\]:where(.dark, .dark *) {
-    color: #EBE3;
+  .dark\:text-\[\#F29422\]:where(.dark, .dark *) {
+    color: #F29422;
   }
-  .dark\:text-\[\#\]:where(.dark, .dark *) {
-    color: #;
+  .dark\:text-\[\#f29422\]:where(.dark, .dark *) {
+    color: #f29422;
   }
 }
 @property --tw-border-style {

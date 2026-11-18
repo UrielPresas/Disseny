@@ -8,14 +8,14 @@
     <link href="../src/output.css" rel="stylesheet">
 </head>
 
-<body class="bg-[#C8D3D9] dark:bg-[#232526]">
+<body class="bg-[#FFF4E3] dark:bg-[#232526]">
 
     <header>
         <nav class="mx-auto flex max-w-7xl items-center px-6 py-4">
 
             <!-- Logo -->
-            <a href="../index.html" class="mr-8 shrink-0" aria-label="UPpop">
-                <img src="../img/UPPopLogo.svg" alt="Logo" width="150" height="50">
+            <a href="../index.html" class="mr-8 shrink-0" aria-label="UPpopLogo">
+                <img src="../img/UPPopLogo.svg" alt="Logo de la pagina web" width="150" height="50">
             </a>
 
             <!-- Creacio Div navbar -->
@@ -23,9 +23,10 @@
 
                 <!-- Links dins del navbar -->
                 <ul class="hidden items-center gap-8 md:flex">
-                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Qui som</a></li>
-                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Categories</a></li>
-                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Contacte</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Qui som</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Categories</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Contacte</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Noticies</a></li>
                 </ul>
 
                 <!-- Grupo derecho: tema + login juntos -->
@@ -51,7 +52,7 @@
     </header>
 
     <!-- Secció Main -->
-    <main id="login" class="mx-auto flex max-w-7xl flex-col gap-4 px-6 pb-10 md:flex-row">
+    <main id="register" class="mx-auto flex max-w-7xl flex-col gap-4 px-6 pb-10 md:flex-row">
 
         <!-- Piano: Esbós fer per IA, no és final!! -->
         <section aria-hidden="true"
@@ -74,37 +75,48 @@
         </section>
 
         <!-- Secció Login -->
-        <section class="flex flex-1 flex-col items-center rounded-2xl bg-[#F26B5F] dark:bg-[#73332D] px-6 pb-12 pt-10 text-[#21201F] dark:text-[#EBE3DA] md:min-h-130">
+        <section class="flex flex-1 flex-col items-center rounded-2xl bg-[#1F6F8B] dark:bg-[#73332D] px-6 pb-12 pt-10 text-[#FFF4E3] dark:text-[#EBE3DA] md:min-h-130">
 
             <h1 class="text-center text-3xl font-light">Benvingut a UPpop!</h1>
 
             <!-- Formulari Login -->
-            <form class="mt-14 flex w-full max-w-sm flex-col gap-6">
+            <form class="mt-14 flex w-full max-w-sm flex-col gap-5">
 
                 <!-- Input Nom -->
-                <input type="text" name="nombre" placeholder="Nom" required
-                    class="h-9 w-full rounded bg-[#F29422] px-3 text-[#21201F] placeholder-[#21201F]">
+                <div class="flex flex-col gap-1">
+                    <label for="inputNom">Nom:</label>
+                    <input type="text" id="inputNom" name="nom" placeholder="Pere Pi" required
+                        class="h-9 w-full rounded bg-[#F29422] px-3 text-[#2B1D0E] placeholder-[#2B1D0E] focus:outline-2 focus:outline-[#2B1D0E]">
+                </div>
 
                 <!-- Input Correu -->
-                <input type="email" name="email" placeholder="Email" required
-                    class="h-9 w-full rounded bg-[#F29422] px-3 text-[#21201F] placeholder-[#21201F]">
+                <div class="flex flex-col gap-1">
+                    <label for="inputEmail">Correu:</label>
+                    <input type="email" id="inputEmail" name="email" placeholder="perepi@gmail.com" required
+                        class="h-9 w-full rounded bg-[#F29422] px-3 text-[#2B1D0E] placeholder-[#2B1D0E] focus:outline-2 focus:outline-[#2B1D0E]">
+                </div>
 
                 <!-- Input Contrasenya -->
-                <input type="password" name="password" placeholder="Contrasenya" required
-                    class="h-9 w-full rounded bg-[#F29422] px-3 text-[#21201F] placeholder-[#21201F]">
+                <div class="flex flex-col gap-1">
+                    <label for="inputPassword">Contrasenya:</label>
+                    <input type="password" id="inputPassword" name="password" placeholder="1234" required
+                        class="h-9 w-full rounded bg-[#F29422] px-3 text-[#2B1D0E] placeholder-[#2B1D0E] focus:outline-2 focus:outline-[#2B1D0E]">
+                </div>
 
                 <!-- Botó -->
-                <button type="submit"
-                    class="h-9 w-full rounded bg-[#F29422] text-xl font-light text-[#21201F] transition hover:bg-[#B66F1A]">
-                    Registrat
-                </button>
+                <div>
+                    <button type="submit" id="btnRegistre"
+                        class="mt-4 h-9 w-full rounded bg-[#F29422] text-xl font-light text-[#2B1D0E] transition hover:bg-[#B66F1A]">
+                        Registrat
+                    </button>
+                </div>
 
             </form>
 
             <!-- Link per anar al login -->
             <h2 class="mt-4">
                 Ja tens compte?
-                <a id="textLink" class="text-[#21201A] dark:text-[#EBE3DA] underline" href="./login.html">Inicia sessió aquí</a>
+                <a id="textLink" class="text-[#FFF4E3] hover:text-[#F29422] dark:text-[#EBE3DA] underline" href="./login.html">Inicia sessió aquí</a>
             </h2>
 
         </section>

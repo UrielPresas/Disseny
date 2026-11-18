@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llistar Artistes | UPpop</title>
+    <link href="../src/output.css" rel="stylesheet">
+    <link href="../fonts/fonts.css" rel="stylesheet">
+</head>
+
+<body class="bg-[#FFF4E3] dark:bg-[#232526]">
+
+    <header>
+        <nav class="mx-auto flex max-w-7xl items-center px-6 py-4">
+
+            <!-- Logo -->
+            <a href="#" class="mr-8 shrink-0" aria-label="UPpopLogo">
+                <img src="../img/UPPopLogo.svg" alt="Logo de la pagina web" width="150" height="50">
+            </a>
+
+            <!-- Nav bar -->
+            <div class="flex flex-1 items-center justify-between bg-[#F29422] px-4 py-2">
+
+                <!-- Enlaces de navegación -->
+                <ul class="hidden items-center gap-8 md:flex">
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Qui som</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Categories</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Contacte</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Noticies</a></li>
+                </ul>
+
+                <!-- Grupo derecho: tema + login juntos -->
+                <div class="ml-auto flex items-center gap-4">
+
+                    <!-- Botones de tema -->
+                     <!-- Clar -->
+                    <div class="flex items-center gap-2">
+                        <button id="temaClar" type="button" class="p-1 cursor-pointer" aria-label="Tema Clar">
+                            <img class="pointer-events-none" src="../img/Sol.svg" alt="Tema Clar" width="30" height="30">
+                        </button>
+
+                        <!-- Fosc -->
+                        <button id="temaFosc" type="button" class="p-1 cursor-pointer" aria-label="Tema Fosc">
+                            <img class="pointer-events-none" src="../img/Luna.svg" alt="Tema Fosc" width="30" height="30">
+                        </button>
+                    </div>
+
+                    <a href="./html/login.html" class="rounded-lg bg-[#242527] px-4 py-2 font-medium text-[#f29422] hover:bg-[#f29422] hover:text-[#242527] hover:outline-2 outline-[#242527]">
+                        Login
+                    </a>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+
+    <!-- Primera sección -->
+    <main>
+        
+    </main>
+
+    <style>
+        /* Registrar --x permite animarla con transition */
+        @property --x {
+            syntax: '<percentage>';
+            inherits: true;
+            initial-value: 50%;
+        }
+
+        .dividida {
+            --x: 50%;
+            transition: --x 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Hover: la diagonal se mueve y el bloque con el ratón crece */
+        .dividida:has(.panel-izq:hover) {
+            --x: 62%;
+        }
+
+        .dividida:has(.panel-der:hover) {
+            --x: 38%;
+        }
+
+        /* Los dos polígonos son paralelos y dejan ~1% de hueco entre ellos */
+        .panel-izq {
+            clip-path: polygon(0 0, calc(var(--x) + 7.5%) 0, calc(var(--x) - 8.5%) 100%, 0 100%);
+        }
+
+        .panel-der {
+            clip-path: polygon(calc(var(--x) + 8.5%) 0, 100% 0, 100% 100%, calc(var(--x) - 7.5%) 100%);
+        }
+    </style>
+    
+    <!-- Truquem al script aquí a baix perquè els botons s'han de crear primer, si posem el script a dalt no ens donarà error perquè els botons no estaran creats encara -->
+    <script src="./scripts/tema.js"></script>
+</body>
+
+</html>

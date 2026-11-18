@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page | UPpop</title>
     <link href="./src/output.css" rel="stylesheet">
+    <link href="./fonts/fonts.css" rel="stylesheet">
 </head>
 
-<body class="bg-[#C8D3D9] dark:bg-[#232526]">
+<body class="bg-[#FFF4E3] dark:bg-[#232526]">
 
     <header>
         <nav class="mx-auto flex max-w-7xl items-center px-6 py-4">
 
             <!-- Logo -->
-            <a href="#" class="mr-8 shrink-0" aria-label="UPpop">
-                <img src="./img/UPPopLogo.svg" alt="Logo" width="150" height="50">
+            <a href="#" class="mr-8 shrink-0" aria-label="UPpopLogo">
+                <img src="./img/UPPopLogo.svg" alt="Logo de la pagina web" width="150" height="50">
             </a>
 
             <!-- Nav bar -->
@@ -23,9 +24,10 @@
 
                 <!-- Enlaces de navegación -->
                 <ul class="hidden items-center gap-8 md:flex">
-                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Qui som</a></li>
-                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Categories</a></li>
-                    <li><a href="#" class="text-[#21201F] hover:text-[#c8d3d9]">Contacte</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Qui som</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Categories</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Contacte</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Noticies</a></li>
                 </ul>
 
                 <!-- Grupo derecho: tema + login juntos -->
@@ -44,7 +46,7 @@
                         </button>
                     </div>
 
-                    <a href="./html/login.html" class="rounded-lg bg-[#B66F1A] px-4 py-2 font-medium text-[#21201F] hover:bg-[#21201F] hover:text-[#f29422]">
+                    <a href="./html/login.html" class="rounded-lg bg-[#242527] px-4 py-2 font-medium text-[#f29422] hover:bg-[#f29422] hover:text-[#242527] hover:outline-2 outline-[#242527]">
                         Login
                     </a>
                 </div>
@@ -55,11 +57,11 @@
 
     <!-- Primera sección -->
     <section class="flex min-h-screen flex-col items-center justify-center px-6 text-center">
-        <h1 class="text-7xl font-bold text-[#B66F1A]">
+        <h1 class="text-7xl font-bold text-[#2B1D0E] dark:text-[#F29422] font-['Frutiger']">
             Benvingut a UPpop!
         </h1>
 
-        <p class="mt-4 max-w-xl text-2xl text-[#B66F1A]">
+        <p class="mt-4 max-w-xl text-2xl text-[#2B1D0E] dark:text-[#f29422] font-['Inter'] font-normal">
             Els teus artistes favorits i nous sons esperant per tu
         </p>
     </section>
@@ -101,24 +103,27 @@
         <div class="dividida relative aspect-2/1 w-full max-w-4xl">
 
             <!-- Panel izquierdo -->
-            <div id="panell" class="panel-izq absolute inset-0 cursor-pointer rounded-2xl bg-[#F26B5F] dark:bg-[#73332D]">
+            <div id="panell" class="panel-izq absolute inset-0 cursor-pointer rounded-2xl bg-[#1F6F8B] dark:bg-[#73332D]">
                 <div class="absolute inset-y-0 left-0 flex w-(--x) flex-col items-center justify-center gap-4">
                     <img src="./img/Tierra.svg" alt="Foto del planeta terra" class="h-60 w-60">
-                    <h1 class="text-center text-4xl dark:text-[#EBE3DA]">Veure Mapa</h1>
+                    <h1 class="text-center text-4xl text-[#FFF4E3] dark:text-[#EBE3DA]">Veure Mapa</h1>
                 </div>
             </div>
 
             <!-- Panel derecho -->
-            <div class="panel-der absolute inset-0 cursor-pointer rounded-2xl bg-[#F26B5F] dark:bg-[#73332D]">
-                <div
-                    class="absolute inset-y-0 right-0 flex w-[calc(100%-var(--x))] flex-col items-center justify-center gap-4">
-                    <img src="./img/ListaUsers.svg" alt="Imatge per llistar usuaris" class="h-60 w-60">
-                    <h1 class="text-center text-4xl dark:text-[#EBE3DA]">Llistar Artistes</h1>
+            <div class="panel-der absolute inset-0 cursor-pointer rounded-2xl bg-[#1F6F8B] dark:bg-[#73332D]">
+                <div class="absolute inset-y-0 right-0 flex w-[calc(100%-var(--x))] flex-col items-center justify-center gap-4">
+                    <a href="./html/llistarArtistes.html">
+                        <img src="./img/ListaUsers.svg" alt="Imatge per llistar usuaris" class="h-60 w-60">
+                    </a>
+                    <h1 class="text-center text-4xl text-[#FFF4E3] dark:text-[#EBE3DA]">Llistar Artistes</h1>
                 </div>
             </div>
 
         </div>
     </section>
+
+    
     <!-- Truquem al script aquí a baix perquè els botons s'han de crear primer, si posem el script a dalt no ens donarà error perquè els botons no estaran creats encara -->
     <script src="./scripts/tema.js"></script>
 </body>

@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('./Inter_18pt-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Frutiger';
+    src: url('./Frutiger-76-Black-Italic.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+}
