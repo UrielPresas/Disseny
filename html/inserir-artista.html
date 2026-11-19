@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserir Artista | UPpop</title>
+    <link href="../src/output.css" rel="stylesheet">
+    <link href="../fonts/fonts.css" rel="stylesheet">
+</head>
+
+<body class="bg-[#FFF4E3] font-['Inter'] text-[#2B1D0E] dark:bg-[#232526] dark:text-[#EBE3DA]">
+
+    <a href="#contingut" class="sr-only rounded bg-[#2B1D0E] px-4 py-2 text-[#FFF4E3] focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50">Salta al contingut</a>
+
+    <header>
+        <nav aria-label="Navegació principal" class="mx-auto flex max-w-7xl flex-wrap items-center gap-y-3 px-6 py-4">
+
+            <!-- Logo -->
+            <a href="../index.html" class="mr-8 shrink-0" aria-label="UPpopLogo">
+                <img src="../img/UPPopLogo.svg" alt="Logo de la pagina web" width="150" height="50">
+            </a>
+
+            <!-- Nav bar -->
+            <div class="flex min-w-max flex-1 items-center justify-between bg-[#F29422] px-4 py-2">
+
+                <!-- Enlaces de navegación -->
+                <ul class="hidden items-center gap-8 md:flex">
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Qui som</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Categories</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Contacte</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Noticies</a></li>
+                </ul>
+
+                <!-- Tema + login -->
+                <div class="ml-auto flex items-center gap-4">
+                    <div class="flex items-center gap-2">
+                        <button id="temaClar" type="button" class="p-1 cursor-pointer" aria-label="Tema Clar">
+                            <img class="pointer-events-none shrink-0" src="../img/Sol.svg" alt="" width="30" height="30">
+                        </button>
+                        <button id="temaFosc" type="button" class="p-1 cursor-pointer" aria-label="Tema Fosc">
+                            <img class="pointer-events-none shrink-0" src="../img/Luna.svg" alt="" width="30" height="30">
+                        </button>
+                    </div>
+                    <a href="./login.html" class="rounded-lg bg-[#242527] px-4 py-2 font-medium text-[#f29422] hover:bg-[#f29422] hover:text-[#242527] hover:outline-2 outline-[#242527]">
+                        Login
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main id="contingut" class="mx-auto max-w-7xl px-6 pb-12 pt-6">
+        <h1 class="text-center font-['Frutiger'] text-4xl font-bold text-[#2B1D0E] dark:text-[#F29422] md:text-5xl">Inserir Artista</h1>
+        <p class="mt-2 text-center text-lg text-[#2B1D0E]/85 dark:text-[#EBE3DA]/85 md:text-xl">Afegeix un nou artista al catàleg d'UPpop</p>
+
+        <form action="#" method="post" enctype="multipart/form-data"
+            class="mt-8 grid gap-8 rounded-[40px] p-6 md:grid-cols-[minmax(0,460px)_1fr] md:p-12 bg-[#1F6F8B] text-[#FFF4E3] dark:bg-[#73332D] dark:text-[#EBE3DA] [&_:focus-visible]:outline-3 [&_:focus-visible]:outline-offset-2 [&_:focus-visible]:outline-[#FFF4E3] dark:[&_:focus-visible]:outline-[#EBE3DA]">
+
+            <!-- Foto -->
+            <div class="flex flex-col items-center justify-center gap-3 rounded-3xl p-8 text-center border-2 border-dashed border-[#FFF4E3]/80 bg-[#2B1D0E]/12 dark:border-[#EBE3DA]/80 dark:bg-[#EBE3DA]/15">
+                <!-- Previsualització: <img src="..." alt="Foto de l'artista"> -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.6"/><path d="m21 15-5-5L5 21"/></svg>
+                <p class="text-lg font-medium">Foto de l'artista</p>
+                <p class="text-sm">PNG o JPG · màx. 5 MB</p>
+                <label class="cursor-pointer rounded-lg border-2 border-[#FFF4E3] px-5 py-2 font-medium hover:bg-[#FFF4E3]/15 has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-[#FFF4E3] dark:border-[#EBE3DA] dark:hover:bg-[#EBE3DA]/15 dark:has-[:focus-visible]:outline-[#EBE3DA]">
+                    Pujar foto
+                    <input type="file" id="foto" name="foto" accept="image/png, image/jpeg" class="sr-only">
+                </label>
+            </div>
+
+            <!-- Dades -->
+            <div class="flex flex-col gap-5">
+                <div>
+                    <label for="nom" class="mb-1 block text-sm font-medium">Nom artístic</label>
+                    <input type="text" id="nom" name="nom" required autocomplete="off" placeholder="Ex.: Frank Ocean" class="w-full rounded-lg bg-[#FFF4E3] px-4 py-2.5 text-[#2B1D0E] placeholder:text-[#2B1D0E]/70 dark:bg-[#EBE3DA] dark:text-[#232526] dark:placeholder:text-[#232526]/70">
+                </div>
+
+                <div class="grid gap-5 sm:grid-cols-2">
+                    <div>
+                        <label for="naixement" class="mb-1 block text-sm font-medium">Data de naixement</label>
+                        <input type="date" id="naixement" name="naixement" required class="w-full rounded-lg bg-[#FFF4E3] px-4 py-2.5 text-[#2B1D0E] placeholder:text-[#2B1D0E]/70 dark:bg-[#EBE3DA] dark:text-[#232526] dark:placeholder:text-[#232526]/70">
+                    </div>
+                    <div>
+                        <label for="nacionalitat" class="mb-1 block text-sm font-medium">Nacionalitat</label>
+                        <select id="nacionalitat" name="nacionalitat" required class="w-full rounded-lg bg-[#FFF4E3] px-4 py-2.5 text-[#2B1D0E] placeholder:text-[#2B1D0E]/70 dark:bg-[#EBE3DA] dark:text-[#232526] dark:placeholder:text-[#232526]/70"><option value="" selected disabled>Selecciona un país</option><option>Estats Units</option><option>Espanya</option><option>Islàndia</option><option>Regne Unit</option><option>França</option><option>Alemanya</option><option>Altres</option></select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="genere" class="mb-1 block text-sm font-medium">Gènere musical</label>
+                    <select id="genere" name="genere" required class="w-full rounded-lg bg-[#FFF4E3] px-4 py-2.5 text-[#2B1D0E] placeholder:text-[#2B1D0E]/70 dark:bg-[#EBE3DA] dark:text-[#232526] dark:placeholder:text-[#232526]/70"><option value="" selected disabled>Selecciona un gènere</option><option>R&amp;B / Soul</option><option>Hip-hop</option><option>Pop</option><option>Rock</option><option>Electrònica</option><option>Flamenc</option><option>Jazz</option><option>Art pop</option><option>Altres</option></select>
+                </div>
+
+                <div>
+                    <label for="biografia" class="mb-1 block text-sm font-medium">Biografia</label>
+                    <textarea id="biografia" name="biografia" rows="3" placeholder="Escriu una breu biografia de l'artista..." class="w-full rounded-lg bg-[#FFF4E3] px-4 py-2.5 text-[#2B1D0E] placeholder:text-[#2B1D0E]/70 dark:bg-[#EBE3DA] dark:text-[#232526] dark:placeholder:text-[#232526]/70"></textarea>
+                </div>
+
+                <div class="flex flex-wrap justify-end gap-4">
+                    <a href="./llista-artistes.html" class="inline-flex items-center justify-center rounded-lg px-6 py-2.5 text-lg font-medium border-2 border-[#FFF4E3] hover:bg-[#FFF4E3]/15 dark:border-[#EBE3DA] dark:hover:bg-[#EBE3DA]/15">Cancel·lar</a>
+                    <button type="submit" class="inline-flex items-center justify-center rounded-lg px-6 py-2.5 text-lg font-medium bg-[#F29422] text-[#2B1D0E] hover:bg-[#FFB04D]">Desar artista</button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <script src="../scripts/tema.js"></script>
+</body>
+
+</html>

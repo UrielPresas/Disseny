@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login correcte | UPpop</title>
+    <link href="../src/output.css" rel="stylesheet">
+    <link href="../fonts/fonts.css" rel="stylesheet">
+</head>
+
+<body class="bg-[#FFF4E3] font-['Inter'] text-[#2B1D0E] dark:bg-[#232526] dark:text-[#EBE3DA]">
+
+    <a href="#contingut" class="sr-only rounded bg-[#2B1D0E] px-4 py-2 text-[#FFF4E3] focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50">Salta al contingut</a>
+
+    <header>
+        <nav aria-label="Navegació principal" class="mx-auto flex max-w-7xl flex-wrap items-center gap-y-3 px-6 py-4">
+
+            <!-- Logo -->
+            <a href="../index.html" class="mr-8 shrink-0" aria-label="UPpopLogo">
+                <img src="../img/UPPopLogo.svg" alt="Logo de la pagina web" width="150" height="50">
+            </a>
+
+            <!-- Nav bar -->
+            <div class="flex min-w-max flex-1 items-center justify-between bg-[#F29422] px-4 py-2">
+
+                <!-- Enlaces de navegación -->
+                <ul class="hidden items-center gap-8 md:flex">
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Qui som</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Categories</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Contacte</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Noticies</a></li>
+                </ul>
+
+                <!-- Tema + login -->
+                <div class="ml-auto flex items-center gap-4">
+                    <div class="flex items-center gap-2">
+                        <button id="temaClar" type="button" class="p-1 cursor-pointer" aria-label="Tema Clar">
+                            <img class="pointer-events-none shrink-0" src="../img/Sol.svg" alt="" width="30" height="30">
+                        </button>
+                        <button id="temaFosc" type="button" class="p-1 cursor-pointer" aria-label="Tema Fosc">
+                            <img class="pointer-events-none shrink-0" src="../img/Luna.svg" alt="" width="30" height="30">
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main id="contingut" class="mx-auto flex max-w-7xl justify-center px-6 py-16">
+        <section aria-labelledby="titol" role="status"
+            class="flex w-full max-w-3xl flex-col items-center gap-6 rounded-[40px] px-6 py-14 text-center bg-[#1F6F8B] text-[#FFF4E3] dark:bg-[#73332D] dark:text-[#EBE3DA] [&_:focus-visible]:outline-3 [&_:focus-visible]:outline-offset-2 [&_:focus-visible]:outline-[#FFF4E3] dark:[&_:focus-visible]:outline-[#EBE3DA]">
+
+            <span class="flex size-24 items-center justify-center rounded-full bg-[#F29422]" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="52" height="52" fill="none" stroke="#2B1D0E" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                </svg>
+            </span>
+
+            <h1 id="titol" class="font-['Frutiger'] text-4xl font-bold md:text-5xl">Login correcte!</h1>
+            <p class="max-w-xl text-xl">Has iniciat sessió correctament. Ja pots gaudir dels teus artistes favorits.</p>
+
+            <a href="../index.html" class="inline-flex items-center justify-center rounded-lg px-6 py-2.5 text-lg font-medium bg-[#F29422] text-[#2B1D0E] hover:bg-[#FFB04D]">Tornar a l'inici</a>
+        </section>
+    </main>
+
+    <script src="../scripts/tema.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llista d'artistes | UPpop</title>
+    <link href="../src/output.css" rel="stylesheet">
+    <link href="../fonts/fonts.css" rel="stylesheet">
+    <!-- Marc de notes musicals (només pantalla gran) -->
+    <style>
+        @media (min-width: 1024px) {
+            .carnet::before,
+            .carnet::after {
+                content: "";
+                position: absolute;
+                pointer-events: none;
+                opacity: .75;
+            }
+            /* fila superior i inferior */
+            .carnet::before {
+                inset: 12px 46px;
+                background-image: url(../img/nota.svg), url(../img/nota.svg);
+                background-size: 64px 22px;
+                background-repeat: space no-repeat;
+                background-position: top, bottom;
+            }
+            /* columna esquerra i dreta */
+            .carnet::after {
+                inset: 46px 12px;
+                background-image: url(../img/nota-v.svg), url(../img/nota-v.svg);
+                background-size: 22px 64px;
+                background-repeat: no-repeat space;
+                background-position: left, right;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-[#FFF4E3] font-['Inter'] text-[#2B1D0E] dark:bg-[#232526] dark:text-[#EBE3DA]">
+
+    <a href="#contingut" class="sr-only rounded bg-[#2B1D0E] px-4 py-2 text-[#FFF4E3] focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50">Salta al contingut</a>
+
+    <header>
+        <nav aria-label="Navegació principal" class="mx-auto flex max-w-7xl flex-wrap items-center gap-y-3 px-6 py-4">
+
+            <!-- Logo -->
+            <a href="../index.html" class="mr-8 shrink-0" aria-label="UPpopLogo">
+                <img src="../img/UPPopLogo.svg" alt="Logo de la pagina web" width="150" height="50">
+            </a>
+
+            <!-- Nav bar -->
+            <div class="flex min-w-max flex-1 items-center justify-between bg-[#F29422] px-4 py-2">
+
+                <!-- Enlaces de navegación -->
+                <ul class="hidden items-center gap-8 md:flex">
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Qui som</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Categories</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Contacte</a></li>
+                    <li><a href="#" class="text-[#2B1D0E] hover:underline decoration-2 decoration-[#2B1D0E] font-['Inter'] font-normal">Noticies</a></li>
+                </ul>
+
+                <!-- Tema + login -->
+                <div class="ml-auto flex items-center gap-4">
+                    <div class="flex items-center gap-2">
+                        <button id="temaClar" type="button" class="p-1 cursor-pointer" aria-label="Tema Clar">
+                            <img class="pointer-events-none shrink-0" src="../img/Sol.svg" alt="" width="30" height="30">
+                        </button>
+                        <button id="temaFosc" type="button" class="p-1 cursor-pointer" aria-label="Tema Fosc">
+                            <img class="pointer-events-none shrink-0" src="../img/Luna.svg" alt="" width="30" height="30">
+                        </button>
+                    </div>
+                    <a href="./login.html" class="rounded-lg bg-[#242527] px-4 py-2 font-medium text-[#f29422] hover:bg-[#f29422] hover:text-[#242527] hover:outline-2 outline-[#242527]">
+                        Login
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main id="contingut" class="mx-auto max-w-[1740px] px-6 pb-12 pt-2">
+        <h1 class="sr-only">Llista d'artistes</h1>
+
+        <!-- Filtres -->
+        <form action="#" method="get" role="search" aria-label="Filtrar artistes"
+            class="mb-8 flex flex-wrap items-center gap-3 rounded-lg bg-[#F29422] p-2">
+                <div class="min-w-36 flex-1">
+                    <label for="genere" class="sr-only">Gènere</label>
+                    <select id="genere" name="genere" class="w-full rounded-lg bg-[#FFF4E3] px-3 py-2 text-[#2B1D0E] dark:bg-[#EBE3DA] dark:text-[#232526]"><option>Gènere: Tots</option><option>Hip-hop</option><option>Pop</option><option>R&amp;B / Soul</option></select>
+                </div>
+                <div class="min-w-36 flex-1">
+                    <label for="pais" class="sr-only">País</label>
+                    <select id="pais" name="pais" class="w-full rounded-lg bg-[#FFF4E3] px-3 py-2 text-[#2B1D0E] dark:bg-[#EBE3DA] dark:text-[#232526]"><option>País: Tots</option><option>Estats Units</option><option>Espanya</option><option>Islàndia</option></select>
+                </div>
+                <div class="min-w-36 flex-1">
+                    <label for="mostrar" class="sr-only">Nombre d'artistes a mostrar</label>
+                    <select id="mostrar" name="mostrar" class="w-full rounded-lg bg-[#FFF4E3] px-3 py-2 text-[#2B1D0E] dark:bg-[#EBE3DA] dark:text-[#232526]"><option>Mostrar: 10</option><option>Mostrar: 20</option><option>Mostrar: 50</option></select>
+                </div>
+                <div class="flex min-w-56 flex-[3] items-center rounded-lg bg-[#FFF4E3] pr-2 text-[#2B1D0E] dark:bg-[#EBE3DA] dark:text-[#232526]">
+                    <label for="cerca" class="sr-only">Cerca artista</label>
+                    <input type="search" id="cerca" name="cerca" placeholder="Cerca artista..."
+                        class="w-full rounded-lg bg-transparent px-3 py-2 placeholder:text-[#2B1D0E]/70 dark:placeholder:text-[#232526]/70">
+                    <button type="submit" class="rounded p-1.5" aria-label="Cercar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+                    </button>
+                </div>
+            </form>
+
+        <!-- Targetes: mini targetes en graella a pantalla petita, targetes grans (2 columnes) a pantalla gran -->
+        <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-2 lg:gap-6">
+            <li>
+                <article class="carnet relative flex h-full flex-col gap-3 rounded-3xl p-3 lg:flex-row lg:gap-8 lg:rounded-[40px] lg:p-[52px] has-[a:focus-visible]:outline-3 has-[a:focus-visible]:outline-offset-4 has-[a:focus-visible]:outline-[#2B1D0E] dark:has-[a:focus-visible]:outline-[#F29422] bg-[#1F6F8B] text-[#FFF4E3] dark:bg-[#73332D] dark:text-[#EBE3DA] [&_:focus-visible]:outline-3 [&_:focus-visible]:outline-offset-2 [&_:focus-visible]:outline-[#FFF4E3] dark:[&_:focus-visible]:outline-[#EBE3DA]">
+
+                    <!-- Foto: mateixa mida a totes les targetes. Quan tinguis la imatge, descomenta l'<img> i esborra l'svg:
+                         <img src="..." alt="Foto de Frank Ocean" class="absolute inset-0 size-full object-cover"> -->
+                    <div class="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-[#FFF4E3]/15 dark:bg-[#EBE3DA]/15 lg:aspect-auto lg:min-h-80 lg:w-[40%] lg:shrink-0 lg:rounded-[28px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.6"/><path d="m21 15-5-5L5 21"/></svg>
+                    </div>
+
+                    <div class="flex flex-1 flex-col gap-2 px-1 pb-1 lg:gap-3 lg:p-0">
+                        <p class="hidden font-mono text-base font-bold tracking-wider opacity-80 lg:block" aria-hidden="true">CARNET D'ARTISTA · Nº 0001</p>
+                        <h2 class="font-['Frutiger'] text-lg font-bold leading-tight lg:text-4xl">Frank Ocean</h2>
+                        <p class="w-fit rounded-full bg-[#F29422] px-3 py-1 text-sm font-medium text-[#2B1D0E] lg:text-base"><span class="sr-only">Gènere: </span>R&amp;B / Soul</p>
+
+                        <dl class="hidden flex-col gap-3 lg:flex">
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Nacionalitat</dt><dd class="text-xl font-medium">Estats Units</dd></div>
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Naixement</dt><dd class="text-xl font-medium"><time datetime="1987-10-28">28/10/1987</time></dd></div>
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Àlbums</dt><dd class="text-xl font-medium">2 àlbums</dd></div>
+                        </dl>
+
+                        <!-- Enllaç únic: a pantalla petita cobreix tota la targeta; a pantalla gran és un botó -->
+                        <a href="./artista.html?id=1"
+                            class="max-lg:after:absolute max-lg:after:inset-0 lg:mt-auto lg:rounded-lg lg:bg-[#F29422] lg:py-3 lg:text-center lg:text-xl lg:font-medium lg:text-[#2B1D0E] lg:hover:bg-[#FFB04D]">
+                            <span class="max-lg:sr-only">Veure artista</span><span class="sr-only"> Frank Ocean</span>
+                        </a>
+
+                        <!-- Modificar / Eliminar -->
+                        <p class="relative z-10 flex gap-5 text-sm underline lg:justify-center lg:text-lg">
+                            <a href="./modificar-artista.html?id=1" class="py-1">Modificar<span class="sr-only"> Frank Ocean</span></a>
+                            <a href="./eliminar-artista.html?id=1" class="py-1">Eliminar<span class="sr-only"> Frank Ocean</span></a>
+                        </p>
+                    </div>
+                </article>
+            </li>
+            <li>
+                <article class="carnet relative flex h-full flex-col gap-3 rounded-3xl p-3 lg:flex-row lg:gap-8 lg:rounded-[40px] lg:p-[52px] has-[a:focus-visible]:outline-3 has-[a:focus-visible]:outline-offset-4 has-[a:focus-visible]:outline-[#2B1D0E] dark:has-[a:focus-visible]:outline-[#F29422] bg-[#1F6F8B] text-[#FFF4E3] dark:bg-[#73332D] dark:text-[#EBE3DA] [&_:focus-visible]:outline-3 [&_:focus-visible]:outline-offset-2 [&_:focus-visible]:outline-[#FFF4E3] dark:[&_:focus-visible]:outline-[#EBE3DA]">
+
+                    <!-- Foto: mateixa mida a totes les targetes. Quan tinguis la imatge, descomenta l'<img> i esborra l'svg:
+                         <img src="..." alt="Foto de Freddie Gibbs" class="absolute inset-0 size-full object-cover"> -->
+                    <div class="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-[#FFF4E3]/15 dark:bg-[#EBE3DA]/15 lg:aspect-auto lg:min-h-80 lg:w-[40%] lg:shrink-0 lg:rounded-[28px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.6"/><path d="m21 15-5-5L5 21"/></svg>
+                    </div>
+
+                    <div class="flex flex-1 flex-col gap-2 px-1 pb-1 lg:gap-3 lg:p-0">
+                        <p class="hidden font-mono text-base font-bold tracking-wider opacity-80 lg:block" aria-hidden="true">CARNET D'ARTISTA · Nº 0002</p>
+                        <h2 class="font-['Frutiger'] text-lg font-bold leading-tight lg:text-4xl">Freddie Gibbs</h2>
+                        <p class="w-fit rounded-full bg-[#F29422] px-3 py-1 text-sm font-medium text-[#2B1D0E] lg:text-base"><span class="sr-only">Gènere: </span>Hip-hop</p>
+
+                        <dl class="hidden flex-col gap-3 lg:flex">
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Nacionalitat</dt><dd class="text-xl font-medium">Estats Units</dd></div>
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Naixement</dt><dd class="text-xl font-medium"><time datetime="1982-06-14">14/06/1982</time></dd></div>
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Àlbums</dt><dd class="text-xl font-medium">7 àlbums</dd></div>
+                        </dl>
+
+                        <!-- Enllaç únic: a pantalla petita cobreix tota la targeta; a pantalla gran és un botó -->
+                        <a href="./artista.html?id=2"
+                            class="max-lg:after:absolute max-lg:after:inset-0 lg:mt-auto lg:rounded-lg lg:bg-[#F29422] lg:py-3 lg:text-center lg:text-xl lg:font-medium lg:text-[#2B1D0E] lg:hover:bg-[#FFB04D]">
+                            <span class="max-lg:sr-only">Veure artista</span><span class="sr-only"> Freddie Gibbs</span>
+                        </a>
+
+                        <!-- Modificar / Eliminar -->
+                        <p class="relative z-10 flex gap-5 text-sm underline lg:justify-center lg:text-lg">
+                            <a href="./modificar-artista.html?id=2" class="py-1">Modificar<span class="sr-only"> Freddie Gibbs</span></a>
+                            <a href="./eliminar-artista.html?id=2" class="py-1">Eliminar<span class="sr-only"> Freddie Gibbs</span></a>
+                        </p>
+                    </div>
+                </article>
+            </li>
+            <li>
+                <article class="carnet relative flex h-full flex-col gap-3 rounded-3xl p-3 lg:flex-row lg:gap-8 lg:rounded-[40px] lg:p-[52px] has-[a:focus-visible]:outline-3 has-[a:focus-visible]:outline-offset-4 has-[a:focus-visible]:outline-[#2B1D0E] dark:has-[a:focus-visible]:outline-[#F29422] bg-[#1F6F8B] text-[#FFF4E3] dark:bg-[#73332D] dark:text-[#EBE3DA] [&_:focus-visible]:outline-3 [&_:focus-visible]:outline-offset-2 [&_:focus-visible]:outline-[#FFF4E3] dark:[&_:focus-visible]:outline-[#EBE3DA]">
+
+                    <!-- Foto: mateixa mida a totes les targetes. Quan tinguis la imatge, descomenta l'<img> i esborra l'svg:
+                         <img src="..." alt="Foto de Rosalía" class="absolute inset-0 size-full object-cover"> -->
+                    <div class="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-[#FFF4E3]/15 dark:bg-[#EBE3DA]/15 lg:aspect-auto lg:min-h-80 lg:w-[40%] lg:shrink-0 lg:rounded-[28px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.6"/><path d="m21 15-5-5L5 21"/></svg>
+                    </div>
+
+                    <div class="flex flex-1 flex-col gap-2 px-1 pb-1 lg:gap-3 lg:p-0">
+                        <p class="hidden font-mono text-base font-bold tracking-wider opacity-80 lg:block" aria-hidden="true">CARNET D'ARTISTA · Nº 0003</p>
+                        <h2 class="font-['Frutiger'] text-lg font-bold leading-tight lg:text-4xl">Rosalía</h2>
+                        <p class="w-fit rounded-full bg-[#F29422] px-3 py-1 text-sm font-medium text-[#2B1D0E] lg:text-base"><span class="sr-only">Gènere: </span>Pop / Flamenc</p>
+
+                        <dl class="hidden flex-col gap-3 lg:flex">
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Nacionalitat</dt><dd class="text-xl font-medium">Espanya</dd></div>
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Naixement</dt><dd class="text-xl font-medium"><time datetime="1992-09-25">25/09/1992</time></dd></div>
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Àlbums</dt><dd class="text-xl font-medium">3 àlbums</dd></div>
+                        </dl>
+
+                        <!-- Enllaç únic: a pantalla petita cobreix tota la targeta; a pantalla gran és un botó -->
+                        <a href="./artista.html?id=3"
+                            class="max-lg:after:absolute max-lg:after:inset-0 lg:mt-auto lg:rounded-lg lg:bg-[#F29422] lg:py-3 lg:text-center lg:text-xl lg:font-medium lg:text-[#2B1D0E] lg:hover:bg-[#FFB04D]">
+                            <span class="max-lg:sr-only">Veure artista</span><span class="sr-only"> Rosalía</span>
+                        </a>
+
+                        <!-- Modificar / Eliminar -->
+                        <p class="relative z-10 flex gap-5 text-sm underline lg:justify-center lg:text-lg">
+                            <a href="./modificar-artista.html?id=3" class="py-1">Modificar<span class="sr-only"> Rosalía</span></a>
+                            <a href="./eliminar-artista.html?id=3" class="py-1">Eliminar<span class="sr-only"> Rosalía</span></a>
+                        </p>
+                    </div>
+                </article>
+            </li>
+            <li>
+                <article class="carnet relative flex h-full flex-col gap-3 rounded-3xl p-3 lg:flex-row lg:gap-8 lg:rounded-[40px] lg:p-[52px] has-[a:focus-visible]:outline-3 has-[a:focus-visible]:outline-offset-4 has-[a:focus-visible]:outline-[#2B1D0E] dark:has-[a:focus-visible]:outline-[#F29422] bg-[#1F6F8B] text-[#FFF4E3] dark:bg-[#73332D] dark:text-[#EBE3DA] [&_:focus-visible]:outline-3 [&_:focus-visible]:outline-offset-2 [&_:focus-visible]:outline-[#FFF4E3] dark:[&_:focus-visible]:outline-[#EBE3DA]">
+
+                    <!-- Foto: mateixa mida a totes les targetes. Quan tinguis la imatge, descomenta l'<img> i esborra l'svg:
+                         <img src="..." alt="Foto de Björk" class="absolute inset-0 size-full object-cover"> -->
+                    <div class="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-[#FFF4E3]/15 dark:bg-[#EBE3DA]/15 lg:aspect-auto lg:min-h-80 lg:w-[40%] lg:shrink-0 lg:rounded-[28px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="1.6"/><path d="m21 15-5-5L5 21"/></svg>
+                    </div>
+
+                    <div class="flex flex-1 flex-col gap-2 px-1 pb-1 lg:gap-3 lg:p-0">
+                        <p class="hidden font-mono text-base font-bold tracking-wider opacity-80 lg:block" aria-hidden="true">CARNET D'ARTISTA · Nº 0004</p>
+                        <h2 class="font-['Frutiger'] text-lg font-bold leading-tight lg:text-4xl">Björk</h2>
+                        <p class="w-fit rounded-full bg-[#F29422] px-3 py-1 text-sm font-medium text-[#2B1D0E] lg:text-base"><span class="sr-only">Gènere: </span>Art pop</p>
+
+                        <dl class="hidden flex-col gap-3 lg:flex">
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Nacionalitat</dt><dd class="text-xl font-medium">Islàndia</dd></div>
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Naixement</dt><dd class="text-xl font-medium"><time datetime="1965-11-21">21/11/1965</time></dd></div>
+                            <div class="flex items-baseline gap-4 border-b-2 border-dotted border-[#FFF4E3]/60 pb-1 dark:border-[#EBE3DA]/60"><dt class="w-36 shrink-0 font-mono text-lg">Àlbums</dt><dd class="text-xl font-medium">10 àlbums</dd></div>
+                        </dl>
+
+                        <!-- Enllaç únic: a pantalla petita cobreix tota la targeta; a pantalla gran és un botó -->
+                        <a href="./artista.html?id=4"
+                            class="max-lg:after:absolute max-lg:after:inset-0 lg:mt-auto lg:rounded-lg lg:bg-[#F29422] lg:py-3 lg:text-center lg:text-xl lg:font-medium lg:text-[#2B1D0E] lg:hover:bg-[#FFB04D]">
+                            <span class="max-lg:sr-only">Veure artista</span><span class="sr-only"> Björk</span>
+                        </a>
+
+                        <!-- Modificar / Eliminar -->
+                        <p class="relative z-10 flex gap-5 text-sm underline lg:justify-center lg:text-lg">
+                            <a href="./modificar-artista.html?id=4" class="py-1">Modificar<span class="sr-only"> Björk</span></a>
+                            <a href="./eliminar-artista.html?id=4" class="py-1">Eliminar<span class="sr-only"> Björk</span></a>
+                        </p>
+                    </div>
+                </article>
+            </li>
+        </ul>
+
+        <!-- Paginació -->
+        <nav aria-label="Paginació" class="mt-10">
+            <ul class="flex flex-wrap items-center justify-center gap-2">
+                <li><a href="#" class="rounded-lg border-2 border-[#2B1D0E] px-4 py-2 hover:bg-[#2B1D0E]/10 dark:border-[#EBE3DA] dark:hover:bg-[#EBE3DA]/10">Anterior</a></li>
+                <li><a href="#" aria-current="page" aria-label="Pàgina 1" class="block rounded-lg bg-[#F29422] px-4 py-2 font-medium text-[#2B1D0E]">1</a></li>
+                <li><a href="#" aria-label="Pàgina 2" class="rounded-lg border-2 border-[#2B1D0E] px-4 py-2 hover:bg-[#2B1D0E]/10 dark:border-[#EBE3DA] dark:hover:bg-[#EBE3DA]/10">2</a></li>
+                <li><a href="#" aria-label="Pàgina 3" class="rounded-lg border-2 border-[#2B1D0E] px-4 py-2 hover:bg-[#2B1D0E]/10 dark:border-[#EBE3DA] dark:hover:bg-[#EBE3DA]/10">3</a></li>
+                <li><a href="#" class="rounded-lg border-2 border-[#2B1D0E] px-4 py-2 hover:bg-[#2B1D0E]/10 dark:border-[#EBE3DA] dark:hover:bg-[#EBE3DA]/10">Següent</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <script src="../scripts/tema.js"></script>
+</body>
+
+</html>
